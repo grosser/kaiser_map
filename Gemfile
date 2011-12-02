@@ -6,6 +6,7 @@ gem 'json'
 gem 'rake'
 gem 'parallel'
 gem 'activerecord', :require => 'activerecord'
+gem 'sqlite3'
 gem 'standalone_migrations'
 gem 'geokit'
 
