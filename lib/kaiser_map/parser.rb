@@ -43,7 +43,7 @@ module KaiserMap
       # get all pages
       per_page = 10
       pages = first.body.match(/of\s+(\d+)/)[1].to_i / per_page
-      pages = Array.new(pages)
+      pages = Array.new(pages + 1)
 
       Parallel.map_with_index(pages, :in_threads => 4) do |page, index|
         page = index + 1
