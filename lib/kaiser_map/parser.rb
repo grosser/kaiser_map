@@ -3,8 +3,7 @@
 module KaiserMap
   module Parser
     def self.parse(zip)
-      pages = all_pages(zip)
-      parse_pages(pages)
+      parse_pages(all_pages(zip))
     end
 
     def self.parse_pages(pages)
@@ -16,10 +15,9 @@ module KaiserMap
     end
 
     def self.parse_doctor(doctor)
-      puts 1
       {
         :name => doctor.search('.title').text,
-        :url => doctor.search('.learnMore').first['href'],
+        :url => (doctor.search('.learnMore').first['href'] rescue nil),
         :address => doctor.search('.mt5').text.gsub("\302\240",' ').gsub(/\s+/,' '),
         :image_url => doctor.search('img').first['src']
       }
@@ -29,8 +27,9 @@ module KaiserMap
       agent = Mechanize.new
 
       # login
-      page = agent.post 'https://mydoctor.kaiserpermanente.org/cyd/nonMemberSearch.action';nil
-      form = page.form('searchForm');nil
+      agent.post 'https://mydoctor.kaiserpermanente.org/cyd/nonMemberSearch.action'
+      page = agent.post 'https://mydoctor.kaiserpermanente.org/cyd/nonMemberSearch.action'
+      form = page.form 'searchForm'
 
       # post initial search values
       first = agent.post 'https://mydoctor.kaiserpermanente.org/cyd/ajaxNonMemberSearchResults.action',
@@ -39,7 +38,7 @@ module KaiserMap
         "location" => "",
         "securityKey" => form.securityKey,
         "speciality" => "MED", # Adult medicine
-        "zipcode" => "94103"
+        "zipcode" => zip
 
       # get all pages
       per_page = 10
