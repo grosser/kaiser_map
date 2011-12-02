@@ -112,8 +112,7 @@ RS.CLUSTERED_MAP = new JS.Class({
 
   tiny_icon : function(){
     var tinyIcon = new GIcon();
-    tinyIcon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
-    tinyIcon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+    tinyIcon.image = "images/marker.gif";
     tinyIcon.iconSize = new GSize(12, 20);
     tinyIcon.shadowSize = new GSize(22, 20);
     tinyIcon.iconAnchor = new GPoint(6, 20);

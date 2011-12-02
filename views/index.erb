@@ -13,8 +13,10 @@
 <script>
   RS.MAP.key = "ABQIAAAA9rWAXwsosqg0R8Lfc9vBnhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSLxyCjzRF8ZTyc22QCMnivaDZlfQ";
   RS.MAP.start_point = [37.7823055,-122.4410007];
-  RS.MAP.zoom = 5;
+  RS.MAP.zoom = 8;
   RS.MAP.data = <%= Doctor.all.map{|d| [d.id, d.lat, d.lng] }.to_json %>;
+  RS.MAP.klas = "Group";
+  RS.MAP.hide_start_marker = true;
   RS.MAP.start('dynamic');
 </script>
 
