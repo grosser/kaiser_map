@@ -1,0 +1,1280 @@
+
+
+
+
+
+
+
+<style>
+.mytitle{
+  width: 110px;
+  font-weight: bold;
+}
+table.doctorDetails{
+  font-size:1.1em;
+  margin:0 0 20px 0;
+}
+.doctorDetails td {
+  padding: 0 0 6px 12px;
+}
+</style>
+
+
+<div id="CYDSearchContent" class="guest_cyd">
+
+
+
+<div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="drSearchPagination mt5">
+		      <ul class="pagination paginationSearchcyd" id="paginationTop">
+		         <li class="grey"> &laquo; Previous</li>
+
+		         	<li class="current"> 1</li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(2)">2</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(3)">3</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(4)">4</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(5)">5</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(6)">6</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(7)">7</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(8)">8</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(9)">9</a></li>
+
+		         	<li > <a id="pageId" onclick="javscript:pagination(10)">10</a></li>
+
+		         <li > <a onclick="javscript:pagination('next')">Next &raquo;</a></li>
+		      </ul>
+		</div>
+
+
+	<!--PREFERENCE BOX DROP DOWN TO FILTER THE SEARCH RESULTS-->
+	<div class="preferenceBox fLeft mt15 mb10" style="position:relative;">
+    <div id="sortBy" class="floatLeft">
+        <div id="sortLabel" class="labelTitle bold">Sort doctors by Gender or Language<img class="inline ml5" src="/cyd/cyd/ncal/static_includes/img/icon_arrow.gif" /></div>
+        <div class="prefContent clearBoth pt20 pb10 relativePosition" id="sortOptions" style="display:none;">
+
+        <!--SORT BY GENDER-->
+        <table>
+      	    <tr>
+
+	          	<td class="sortName"><span class="ml20 inlineBlock bold sortLabel">Gender: </span></td>
+            	<td>
+		            <span class="ml20 inlineBlock sortOptions">
+
+		                	<span><a class="sortOption" id="gender" onclick="callResults('Female')" >Female</a></span><span>,</span>
+
+		                	<span><a class="sortOption" id="gender" onclick="callResults('Male')" >Male</a></span>
+
+		            </span>
+		        </td>
+
+			</tr>
+	        <!--SORT BY CLINICIAN TYPE-->
+	        <tr>
+            	<td class="sortName">
+            	    <!--  <a id="infoicon" class="ml5 clinicianTypes" style="position:absolute;top:75px;left:0;" href="/cyd/cyd/ajaxCYD/providerInfo.html"></a> -->
+            	     <span class="ml20 inlineBlock bold sortLabel">Clinician Type: </span>
+            	</td>
+	            <td>
+		            <span class="ml20 inlineBlock sortOptions">
+
+		                	<span class="mt5"><a class="sortOption" onclick="callResults('MD/DO')">MD/DO</a></span><span class="mt5">,</span>
+
+		                	<span class="mt5"><a class="sortOption" onclick="callResults('NP/PA')">NP/PA</a></span>
+
+		            </span>
+		        </td>
+	        </tr>
+
+	        <!--SORT BY LANGUAGE-->
+	        <tr>
+
+            	 <td class="sortName"><span class="ml20 inlineBlock bold sortLabel">Language: </span></td>
+           		 <td>
+	            <span class="ml20 inlineBlock sortOptions">
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Arabic')">
+	            			Arabic</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Burmese')">
+	            			Burmese</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Cantonese')">
+	            			Cantonese</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('French')">
+	            			French</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('German')">
+	            			German</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Gujarati')">
+	            			Gujarati</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Hindi')">
+	            			Hindi</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Japanese')">
+	            			Japanese</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Lithuanian')">
+	            			Lithuanian</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Mandarin')">
+	            			Mandarin</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Punjabi')">
+	            			Punjabi</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Russian')">
+	            			Russian</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Spanish')">
+	            			Spanish</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Tagalog')">
+	            			Tagalog</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Thai')">
+	            			Thai</a></span><span>,</span>
+
+	            		<span class="mt5"><a  class="sortOption" id="language" onclick="callResults('Urdu')">
+	            			Urdu</a></span>
+
+	            </span>
+	        	</td>
+
+	        </tr>
+        </table>
+    </div>
+    </div>
+	<div id="sortFeedback" class="floatRight">
+	<div class="sortFeedback">
+        <span class="bold labelTitle">SHOWING:</span>
+        <span class="defaultColor"><span class="bold">1-&nbsp;10</span> of  101 <span class="bold">Clinicians</span></span>
+    </div>
+
+    </div>
+</div>
+
+
+
+
+<!--SEARCH RESULT 1-->
+
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Joseph Atkinson, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/atkinson?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/8266130_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2200 O'farrell Street&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, Michigan State University College of Human Medicine</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - Kalamazoo Center for Medical Studies, Kalamazoo, MI</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Family Medicine, American Board Of Family Medicine</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine, Young Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Jill Baker, NP<!--  <a id="infoicon" class="inlineBlock" href="/cyd/cyd/ajaxCYD/providerInfo.html"></a>--></h3>
+
+	                   <a href='http://www.kp.org/mydoctor/jillbaker?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/7737691_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2238 Geary Blvd&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - NP / MSN, UC San Francisco School of Nursing</div>
+							</div>
+
+
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+
+							<td class="mytitle">&nbsp;</td>
+
+
+					</tr>
+
+
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Eric Capulla, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/ericcapulla?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/2064303_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2238 Geary Blvd&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, University of the East Medical Center</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - St. Luke's Roosevelt Hospital Center, New York, NY</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Internal Medicine, American Board Of Internal Medicine</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine, Young Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+		                <tr>
+		                    <td class="mytitle">Language(s)</td>
+		                    <td>
+					             <div>Tagalog</div>
+		                    </td>
+		                </tr>
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Steven Chan, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/stevenchan?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/8978774_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2238 Geary Blvd&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, Wake Forest University Bowman Gray School of Medicine</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - Mount Zion Medical Center of the University of California, San Francisco, CA</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Internal Medicine, American Board Of Internal Medicine</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+		                <tr>
+		                    <td class="mytitle">Language(s)</td>
+		                    <td>
+					             <div>Cantonese, Thai</div>
+		                    </td>
+		                </tr>
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Rebekah Chang, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/rebekahchang?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/2948661_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2200 O'farrell Street&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, Medical College of Pennsylvania</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - University of Massachusetts Medical Center, Worcester, MA</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Family Medicine, American Board Of Family Medicine</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine, Young Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Mark Chen, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/markchen?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/5939378_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2238 Geary Blvd&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, University of Vermont School of Medicine</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - Kaiser Permanente Medical Center, Oakland, CA</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Internal Medicine, American Board Of Internal Medicine</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Holly Deng, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/hollydeng?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/3834948_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2238 Geary Blvd&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, David Geffen School of Medicine - UCLA</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - UC Davis Medical Center, Sacramento, CA</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Internal Medicine, American Board Of Internal Medicine</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Catherine Farrell, NP<!--  <a id="infoicon" class="inlineBlock" href="/cyd/cyd/ajaxCYD/providerInfo.html"></a>--></h3>
+
+	                   <a href='http://www.kp.org/mydoctor/catherinefarrell?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/1491175_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2238 Geary Blvd&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - ADN, Columbia University School of Nursing</div>
+							</div>
+
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Family - Aanp, Aanp: American Academy Of Nurse Practitioners</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+
+							<td class="mytitle">&nbsp;</td>
+
+
+					</tr>
+
+
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Anas Hana, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/anashana?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/5973720_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2238 Geary Blvd&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, Damascus University</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - Michael Reese Hospital and Medical Center, Chicago, IL</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Board Certification - Internal Medicine, American Board Of Internal Medicine</div>
+							</div>
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+		                <tr>
+		                    <td class="mytitle">Language(s)</td>
+		                    <td>
+					             <div>Arabic</div>
+		                    </td>
+		                </tr>
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+	<!--Header For Gender-->
+
+
+
+
+
+   	<!--Header For Clinicians Type-->
+
+
+
+
+   	<!--Header For Language (Struts2 tags are not compatible for dynamic values in String operations.
+   		So used scriplets for this section only)-->
+
+
+    <div class="doctorInfo fLeft bt1 pb20">
+
+        <!--TITLE AND CHOOSE ME/OR NOT IF BROWSING AS GUEST-->
+        <div class="floatRight searchTitle">
+            <h3 class="title pb0i pl10 mb10 fLeft">Yunie Kim, MD</h3>
+
+	                   <a href='http://www.kp.org/mydoctor/yuniekim?tab=about/professional'  target="_blank" class="bold pb0i pl10 learnMore fRight">Learn more about me and my practice &rsaquo;&rsaquo;</a>
+
+        </div>
+        <div class="fRight" style="width:755px;">
+
+            <!--DOCTOR PHOTO-->
+            <div class="fLeft searchImage">
+                <img src="https://www.permanente.net/pmdb/photosync/6054346_photoweb.jpg" />
+
+            </div>
+
+			<table class="fLeft doctorDetails" style="width:570px; margin-left:15px;">
+				<tr>
+				<td class="mytitle">Office Location</td>
+				<td>
+					<div class="bold" style="color:#AC5A41">San Francisco Medical Center</div>
+					<div class="mt5">
+						Medicine<br/>
+
+
+
+						2200 O'farrell Street&nbsp;<br/>
+
+
+
+						San Francisco,CA
+
+
+						94115
+					</div>
+				</td>
+				</tr>
+
+				<tr>
+
+					<td class="mytitle">Credentials</td>
+					 <td>
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Medical Education - MD, Yale University School of Medicine</div>
+							</div>
+
+
+							<div class="clearBoth p0ie">
+							<div class="cdValue fLeft">Residency - UC San Francisco, San Francisco, CA</div>
+							</div>
+
+
+					</td>
+
+				</tr>
+
+					<tr>
+
+							<td class="mytitle">Area of Practice</td>
+						<td>
+							<div>Adult Medicine
+
+							</div>
+						</td>
+
+
+
+					</tr>
+
+
+
+				</table>
+
+				<!--1ST COLUMN SHORT DESCRIPTION-->
+
+
+				<!--2ND COLUMN LOCATION-->
+
+
+				<!--3RD COLUMN CREDENTIALS-->
+
+				</div>
+				</div>
+
+
+				<div class="drSearchPagination mt15">
+					<ul class="pagination paginationSearchcyd" id="paginationTop">
+						<li class="grey"> &laquo; Previous</li>
+
+						<li class="current"> 1</li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(2)">2</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(3)">3</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(4)">4</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(5)">5</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(6)">6</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(7)">7</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(8)">8</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(9)">9</a></li>
+
+						<li > <a id="pageId" onclick="javscript:pagination(10)">10</a></li>
+
+						<li > <a onclick="javscript:pagination('next')">Next &raquo;</a></li>
+					</ul>
+				</div>
+
+
+
+				<div class="mt5 bold fRight topLink">
+					<a href="#" class="topofSearch inlineBlock mr10">Top</a><img class="inlineBlock" src="/cyd/cyd/ncal/static_includes/img/icon_top.png" />
+				</div>
+
+
+				<input type="hidden" name="securityKey" id="securityKey" value='HDSTMM5KT2DTKQ5BZJNWRD7DX'/>
+				</div>
