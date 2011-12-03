@@ -33,7 +33,7 @@ module KaiserMap
 
       # post initial search values
       first = agent.post 'https://mydoctor.kaiserpermanente.org/cyd/ajaxNonMemberSearchResults.action',
-        "distance" =>	"1",
+        "distance" =>	"4",
         "kaiserKey" => form.kaiserKey,
         "location" => "",
         "securityKey" => form.securityKey,
